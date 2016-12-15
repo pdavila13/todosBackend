@@ -90,6 +90,7 @@
 <script>
 
 import Pagination from './Pagination.vue'
+import Todo from './Todo.vue'
 
 export default {
     components : { Pagination },
