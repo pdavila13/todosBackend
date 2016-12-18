@@ -52,7 +52,7 @@ class TasksController extends Controller
 
         // The current user can update the post...
         $tasks = Task::paginate(15);
-        return $this->generatePaginatedResponse($tasks, ['propietari' => 'Sergi Tur']);
+        return $this->generatePaginatedResponse($tasks, ['propietari' => 'Paolo Davila']);
     }
 
     /**
@@ -75,9 +75,16 @@ class TasksController extends Controller
     public function store(Request $request)
     {
         if (!$request->has('user_id')) {
-            $request->merge(['user_id' => Auth::id() ]);
+            $request->merge(['user_id' => Auth::id()]);
         }
+
         Task::create($request->all());
+
+        return response([
+            'error'   => false,
+            'created' => true,
+            'message' => 'Task created!',
+        ], 200);
     }
 
     /**
@@ -91,6 +98,7 @@ class TasksController extends Controller
     {
 //        $task = Task::findOrFail($id);
         $task = $this->repository->find($id);
+
         return $this->transformer->transform($task);
     }
 
@@ -116,11 +124,15 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $task = Task::findOrFail($id);
+        $task = Task::findOrFail($id)->update($request->all());
 
-        $this->authorize('update', $task);
+        //$this->authorize('update', $task);
 
-        //do update here
+        return response([
+        'error'   => false,
+        'updated' => true,
+        'message' => 'Task updated!',
+    ], 200);
 
     }
 
@@ -133,6 +145,12 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Task::findOrFail($id)->delete();
+
+        return response([
+            'error'   => false,
+            'deleted' => true,
+            'message' => 'Task deleted!',
+        ], 200);
     }
 }

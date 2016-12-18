@@ -34,6 +34,10 @@ class User extends Authenticatable
         'password', 'remember_token','api_token'
     ];
 
+    public static function findOrFail($id)
+    {
+    }
+
     public function tasks()
     {
         return $this->hasMany(Task::class);

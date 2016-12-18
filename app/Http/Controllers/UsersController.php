@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\UserRepository;
 use App\Transformers\UserTransformer;
 use App\User;
 use Illuminate\Http\Request;
@@ -9,12 +10,19 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+    protected $repository;
+
     /**
      * UsersController constructor.
+     *
+     * @param UserTransformer $transformer
+     * @param UserRepository $repository
      */
-    public function __construct(UserTransformer $transformer)
+    public function __construct(UserTransformer $transformer, UserRepository $repository)
     {
         parent::__construct($transformer);
+
+        $this->repository = $repository;
     }
 
     /**
@@ -24,9 +32,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(15);
+        $users = $this->repository->paginate(15);
 
-        return $this->generatePaginatedResponse($users, ['propietari' => 'Sergi Tur']);
+        return $this->generatePaginatedResponse($users, ['propietari' => 'Paolo Davila']);
     }
 
     /**
@@ -48,7 +56,13 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        User::create([$request->all()]);
+
+        return response([
+            'error'   => false,
+            'created' => true,
+            'message' => 'Created user!',
+        ], 200);
     }
 
     /**
@@ -60,7 +74,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = $this->repository->findOrFail($id);
+
+        return $this->transformer->transform($user);
     }
 
     /**
@@ -85,7 +101,13 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        User::findOrFail($id)->update($request->all(),$id);
+
+        return response([
+            'error'   => false,
+            'updated' => true,
+            'message' => 'User updated!',
+        ], 200);
     }
 
     /**
@@ -97,6 +119,12 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::findOrFail($id)->delete($id);
+
+        return response([
+            'error'   => false,
+            'deleted' => true,
+            'message' => 'User deleted!',
+        ], 200);
     }
 }

@@ -72,6 +72,6 @@ abstract class BasePolicy
      */
     public function delete(User $user, Task $task)
     {
-        if ($user->hasPermissionTo('delete-task' . $this->model())) return true;
+        if ($user->hasPermissionTo('delete-' . $this->model())) return true;
     }
 }

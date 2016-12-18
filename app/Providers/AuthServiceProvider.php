@@ -40,7 +40,6 @@ class AuthServiceProvider extends ServiceProvider
     protected function defineGates()
     {
         Gate::define('gate-name',function() {
-
         });
 
         Gate::define('impossible-gate',function() {

@@ -69,4 +69,13 @@ class Controller extends BaseController
 
         return $paginationData;
     }
+
+    protected function transform($resources)
+    {
+        return [
+            'name' => $resources['name'],
+            'done' => (boolean)$resources['done'],
+            'priority' => (integer)$resources['priority'],
+        ];
+    }
 }
