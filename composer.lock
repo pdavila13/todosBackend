@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c4baec44a26ee07d9e6d7f652e357d8f",
-    "content-hash": "c4399ad0b6b5364014272f3479581ccb",
+    "hash": "7fa3e6928a4c4c4157c1557a9c9aa511",
+    "content-hash": "b2ff253c4b17f74ea73a929b86afdf41",
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -2135,6 +2135,58 @@
                 "spatie"
             ],
             "time": "2016-03-11 13:14:56"
+        },
+        {
+            "name": "spatie/laravel-menu",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-menu.git",
+                "reference": "7b04be98e11bd087bad5a79ba92c7b5e21addfac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-menu/zipball/7b04be98e11bd087bad5a79ba92c7b5e21addfac",
+                "reference": "7b04be98e11bd087bad5a79ba92c7b5e21addfac",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "~5.1.14|~5.2.0|~5.3.0",
+                "illuminate/contracts": "~5.1.14|~5.2.0|~5.3.0",
+                "illuminate/support": "~5.1.14|~5.2.0|~5.3.0",
+                "php": "^7.0",
+                "spatie/menu": "^2.0.0"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "^1.6",
+                "orchestra/testbench": "3.1.0|3.2.0|3.3.0",
+                "phpunit/phpunit": "^5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Menu\\Laravel\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastiandedeyne@gmail.com",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Html menu generator for Laravel",
+            "homepage": "https://github.com/spatie/laravel-menu",
+            "keywords": [
+                "laravel-menu",
+                "spatie"
+            ],
+            "time": "2016-12-02 09:17:03"
         },
         {
             "name": "spatie/laravel-permission",
