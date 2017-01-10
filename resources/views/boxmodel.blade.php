@@ -9,6 +9,12 @@
 </head>
 
 <style>
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
     #bloc1 {
         width: 600px;
         margin: 20px auto;
