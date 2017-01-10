@@ -16,6 +16,7 @@
     }
 
     #bloc1 {
+        position: static;
         width: 600px;
         margin: 20px auto;
         border: solid green 10px;
@@ -23,6 +24,7 @@
     }
 
     #bloc2 {
+        position: static;
         width: 600px;
         margin: 20px auto;
         padding: 50px;
