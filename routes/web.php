@@ -22,6 +22,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('users', function () {
         dd(App\User::paginate());
     });
+
+    Route::get('/boxmodel', function () {
+        return view('boxmodel');
+    });
 });
 
 Route::get('/', function () {
