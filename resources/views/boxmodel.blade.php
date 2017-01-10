@@ -21,6 +21,7 @@
         margin: 20px auto;
         border: solid green 10px;
         box-sizing: border-box;
+        background-color: green;
     }
 
     #bloc2 {
@@ -31,6 +32,7 @@
         padding: 50px;
         border: solid red 10px;
         box-sizing: border-box;
+        background-color: red;
     }
 
     #bloc3 {
@@ -41,6 +43,7 @@
         padding: 50px;
         border: solid blueviolet 10px;
         box-sizing: border-box;
+        background-color: blueviolet;
     }
 
     #bloc4 {
@@ -52,6 +55,7 @@
         padding: 50px;
         border: solid darkmagenta 10px;
         box-sizing: border-box;
+        background-color: darkmagenta;
     }
 </style>
 
