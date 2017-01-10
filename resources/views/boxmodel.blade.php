@@ -32,17 +32,31 @@
         border: solid red 10px;
         box-sizing: border-box;
     }
+
+    #bloc3 {
+        position: fixed;
+        bottom: 0px;
+        width: 600px;
+        margin: 20px auto;
+        padding: 50px;
+        border: solid blueviolet 10px;
+        box-sizing: border-box;
+    }
 </style>
 
 <body>
 
-<div id="bloc1">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolore dolorem dolorum eum expedita maxime, molestiae nobis nostrum quasi quibusdam sed totam unde vitae. Illum nostrum quidem vero. Neque, tenetur.
-</div>
+    <div id="bloc1">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolore dolorem dolorum eum expedita maxime, molestiae nobis nostrum quasi quibusdam sed totam unde vitae. Illum nostrum quidem vero. Neque, tenetur.
+    </div>
 
-<div id="bloc2">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolores facere impedit incidunt molestiae non placeat veniam. Distinctio porro recusandae voluptatem! Architecto beatae debitis delectus fuga ipsam iure maxime quod?
-</div>
+    <div id="bloc2">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolores facere impedit incidunt molestiae non placeat veniam. Distinctio porro recusandae voluptatem! Architecto beatae debitis delectus fuga ipsam iure maxime quod?
+    </div>
+
+    <div id="bloc3">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquid delectus distinctio, ducimus earum eos excepturi facilis fuga harum nesciunt nulla optio perferendis quae quaerat quasi rem repellat sint!
+    </div>
 
 </body>
 </html>
