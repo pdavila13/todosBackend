@@ -26,6 +26,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/boxmodel', function () {
         return view('boxmodel');
     });
+
+    Route::get('/float', function () {
+        return view('float');
+    });
 });
 
 Route::get('/', function () {
