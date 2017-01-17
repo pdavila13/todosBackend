@@ -205,6 +205,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
         #llum_providers
 
     ],
