@@ -20,20 +20,32 @@
         word-spacing: 0.1em;
     }
 
+    img {
+        float: left;
+        margin-right: 20px;
+    }
+
+    .clearfix {
+        overflow: auto;
+    }
+
 </style>
 
 <body>
     <h1>Simple float example</h1>
 
-    <img src="http://lorempixel.com/200/200/cats" alt="Image lorem">
+    <div class="clearfix">
+        <img src="http://lorempixel.com/200/200/cats" alt="Image lorem">
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dolorum hic itaque nobis odit officia
+            reprehenderit, sed sit! Atque delectus dolore doloribus enim, esse nisi voluptate voluptatibus? Architecto
+            doloribus, officia!</p>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consectetur ea et eveniet harum ipsam laborum
-        numquam odio, officiis omnis optio provident quis recusandae rerum sunt, suscipit tempora vel vero?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consectetur ea et eveniet harum ipsam laborum
+            numquam odio, officiis omnis optio provident quis recusandae rerum sunt, suscipit tempora vel vero?</p>
+    </div>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur ea eligendi eveniet, fuga ipsam modi
-        molestiae nam placeat qui repellendus reprehenderit, repudiandae temporibus totam unde voluptatem! Eum fuga
-        rerum soluta!</p>
+    <h1>Texto que salta!!!</h1>
+
 </body>
 </html>
