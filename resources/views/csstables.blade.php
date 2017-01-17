@@ -7,23 +7,47 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
+<style>
+	html {
+		font-family: Sans-Serif;
+	}
+
+	form {
+		display: table;
+	}
+
+	form div {
+		display: table-row;
+	}
+
+	form label, form input {
+		display: table-cell;
+	}
+
+	form label {
+		text-align: right;
+	}
+
+</style>
+
 <body>
 
 <h1>Personal information</h1>
 
 <form action="">
 	<div>
-		<lavel for="name">First name: </lavel>
+		<label for="name">First name: </label>
 		<input type="text" name="name">
 	</div>
 
 	<div>
-		<lavel for="lastName">Last name: </lavel>
+		<label for="lastName">Last name: </label>
 		<input type="text" name="lastName">
 	</div>
 
 	<div>
-		<lavel for="age">Age: </lavel>
+		<label for="age">Age: </label>
 		<input type="text" name="age">
 	</div>
 </form>
