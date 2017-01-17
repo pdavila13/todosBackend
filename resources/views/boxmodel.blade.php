@@ -10,7 +10,8 @@
 
 <style>
     body {
-        margin-top: 50px;
+        margin: 0px;
+        margin-bottom: 50px;
     }
 
     #nav {
@@ -18,12 +19,13 @@
         left: 0px;
         width: 200px;
         border: solid black 1px;
+        background-color: lightgrey;
     }
 
     #section {
-        border: solid black 1px;
-        margin-left: 200px;
         padding: 10px;
+        margin-left: 200px;
+        background-color: lightcoral;
     }
 
     #footer {
@@ -32,7 +34,7 @@
         width: 100%;
         height: 50px;
         border: solid black 1px;
-        background-color: #00a7d0;
+        background-color: lightblue;
     }
 
     #container {
