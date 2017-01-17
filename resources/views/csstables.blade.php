@@ -9,5 +9,23 @@
 </head>
 <body>
 
+<h1>Personal information</h1>
+
+<form action="">
+	<div>
+		<lavel for="name">First name: </lavel>
+		<input type="text" name="name">
+	</div>
+
+	<div>
+		<lavel for="lastName">Last name: </lavel>
+		<input type="text" name="lastName">
+	</div>
+
+	<div>
+		<lavel for="age">Age: </lavel>
+		<input type="text" name="age">
+	</div>
+</form>
 </body>
 </html>
