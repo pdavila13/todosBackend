@@ -30,6 +30,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/float', function () {
         return view('float');
     });
+
+    Route::get('/layoutfloat', function () {
+        return view('layoutfloat');
+    });
+
+    #adminlte_routes
 });
 
 Route::get('/', function () {
