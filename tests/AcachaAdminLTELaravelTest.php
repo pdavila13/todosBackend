@@ -2,11 +2,12 @@
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Hash;
+use Tests\BrowserKitTest;
 
 /**
  * Class AcachaAdminLTELaravelTest.
  */
-class AcachaAdminLTELaravelTest extends TestCase
+class AcachaAdminLTELaravelTest extends BrowserKitTest
 {
     use DatabaseMigrations;
 

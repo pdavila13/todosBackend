@@ -17,9 +17,11 @@ class UserTasksController extends Controller
     /**
      * TasksController constructor.
      */
-    public function __construct(TaskTransformer $transformer)
+    public function __construct(TaskTransformer $transformer, UserTasksRepository $repository)
     {
         parent::__construct($transformer);
+
+        $this->repository = $repository;
     }
 
     /**
@@ -77,7 +79,7 @@ class UserTasksController extends Controller
         $user = User::findOrFail($id_user);
         $task = $user->tasks()->findOrFail($id_task);
 
-        return $this->transform($task);
+        return $this->transformer->transform($task);
     }
 
     /**

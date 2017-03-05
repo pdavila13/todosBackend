@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Passport\PassportServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Spatie\Menu\Laravel\MenuServiceProvider::class,
         //
@@ -205,7 +206,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        Barryvdh\Cors\ServiceProvider::class,
+//        Barryvdh\Cors\ServiceProvider::class,
         #llum_providers
 
     ],
