@@ -49,17 +49,18 @@ export default {
       email: '',
       password: '',
       password_confirmation: '',
-      terms: true
+      terms: true,
+      error: {}
     }
   },
   methods: {
     submit () {
-      let data = new FormData(document.querySelector("#form"))
-      .then(function (response) {
+      axios.post('/register',this.$data)
+      .then(response => {
         console.log(response)
       })
-      .catch(function (error) {
-        console.log(error)
+      .catch(error => {
+        this.errors = error.response.data
       })
     }
   }
