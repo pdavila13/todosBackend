@@ -24,7 +24,12 @@ window.Vue = require('vue');
 // require('vue-resource');
 
 window.axios = require('axios');
-Vue.prototype.$http = axios;
+// Vue.prototype.$http = axios;
+
+window.axios.defaults.headers.common = {
+    'X-CSRF-TOKEN': window.Laravel.csrfToken,
+    'X-Requested-With': 'XMLHttpRequest'
+};
 
 require('sweetalert');
 
@@ -40,7 +45,7 @@ require('sweetalert');
 //    next();
 //});
 
-axios.defaults.headers.common['X-CSRF-TOKEN'] = Laravel.csrfToken;
+// axios.defaults.headers.common['X-CSRF-TOKEN'] = Laravel.csrfToken;
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
