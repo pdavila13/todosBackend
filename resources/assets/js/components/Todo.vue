@@ -2,19 +2,19 @@
     <tr>
         <td>{{index + from }}</td>
         <td>
-            <div v-if="!editing">
-                <span @dblclick="edit">{{todo.name}}</span>
-                <button style="float: right;" type="button" class="btn btn-warning btn-flat btn-xs" v-show="!editing" @click="edit">
+            <div v-if="!editingName" @dblclick="editTodoName(page,todo.id)">
+                <span>{{todo.name}}</span>
+                <button style="float: right;" type="button" class="btn btn-warning btn-flat btn-xs" @click="editTodoName(page,todo.id)">
                     <i class="fa fa-fw fa-edit"></i>
                 </button>
             </div>
-            <div v-show="editing" @keyup.esc="unedit" @keyup.enter="save">
+            <div v-else @keyup.esc="uneditTodo(page)" @keyup.enter="editTodoName(page,todo.id)">
                 <input v-model="todo.name" size="100">
                 <div  style="float: right;">
-                    <button type="button" class="btn btn-success btn-flat btn-xs" @click="save" v-show="editing">
+                    <button type="button" class="btn btn-success btn-flat btn-xs" @click="editTodoName(page,todo.id)">
                         <i class="fa fa-fw fa-check"></i>
                     </button>
-                    <button type="button" class="btn btn-danger btn-flat btn-xs" v-show="editing" @click="unedit">
+                    <button type="button" class="btn btn-danger btn-flat btn-xs" @click="uneditTodo(page)">
                         <i class="fa fa-fw fa-close"></i>
                     </button>
                 </div>
@@ -50,7 +50,7 @@
         <td align="center"><span class="badge bg-red">55%</span></td>
         <td align="center">
             <div class="btn-group">
-                <button type="button" class="btn btn-info btn-flat" @click="edit">
+                <button type="button" class="btn btn-info btn-flat" @click="editTodoName(page,todo.id)">
                     <i class="fa fa-edit"></i>
                 </button>
 
@@ -69,7 +69,7 @@ export default {
 
     data() {
         return {
-            editing: false
+            editingName: false,
         }
     },
 
@@ -78,24 +78,29 @@ export default {
     },
 
     methods: {
-        hello: function() {
-            console.log('Hello');
+        editTodoName: function(pageNum) {
+            if (this.editingName == true) {
+                this.editTodoNameToApi();
+                this.editingName = false;
+                return this.fetchPage(pageNum);
+            }
+            this.editingName = true;
+            return this.fetchPage(pageNum);
+        },
+        editTodoNameToAPI: function(){
+            this.$http.put('/api/v1/task/' + this.todo.id, {
+                name: this.todo.name,
+            }).then((response) => {
+                console.log('Name of task ' + this.todo.id + ' updated succesfully! Now is known as \"' + this.todo.name + '\".');
+            }, (response) => {
+                sweetAlert("Oops...", "Something went wrong!", "error");
+                console.log(response);
+            });
         },
 
-        edit: function() {
-            this.editing = true;
-        },
-
-        unedit: function() {
-            this.editing = false;
-        },
-
-        save: function() {
-            this.editing = false;
-        },
-
-        edittodo: function() {
-            console.log('TODO editing');
+        uneditTodo: function(pageNum) {
+            this.editingName = false;
+            return this.fetchPage(pageNum);
         },
 
         deleteTodo: function(id) {
