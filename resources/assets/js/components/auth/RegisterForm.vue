@@ -1,5 +1,5 @@
 <template>
-    <form method="post">
+    <form method="post" @submit.prevent="submit">
         <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="" name="name" value=""/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -38,4 +38,15 @@
     </form>
 </template>
 
-<script></script>
+<script>
+    export default {
+        mounted() {
+            console.log('Component Register Form mounted.')
+        },
+        methods: {
+            submit() {
+                console.log('submiting')
+            }
+        }
+    }
+</script>
