@@ -50,12 +50,12 @@
         <td align="center"><span class="badge bg-red">55%</span></td>
         <td align="center">
             <div class="btn-group">
-                <button type="button" class="btn btn-info btn-flat">
-                    <i class="fa fa-edit" @click="edit"></i>
+                <button type="button" class="btn btn-info btn-flat" @click="edit">
+                    <i class="fa fa-edit"></i>
                 </button>
 
-                <button type="button" class="btn btn-danger btn-flat">
-                    <i class="fa fa-trash" @click="deletetodo(index)"></i>
+                <button type="button" class="btn btn-danger btn-flat" @click="deleteTodo(todo.id)">
+                    <i class="fa fa-trash"></i>
                 </button>
             </div>
         </td>
@@ -98,9 +98,9 @@ export default {
             console.log('TODO editing');
         },
 
-        deletetodo: function() {
+        deleteTodo: function(id) {
             console.log('TODO deleting');
-            this.$emit('todo-deleted', index);
+            this.$emit('todo-deleted',id);
         },
     }
 }

@@ -55,7 +55,7 @@
                               v-bind:todo="todo"
                               v-bind:index="index"
                               v-bind:from="from"
-                              @todo-deleted="deletetodo">
+                              @todo-deleted="deleteTodo">
                         </todo>
                     </tbody>
 
@@ -127,6 +127,16 @@ export default {
         this.fetchData();
     },
     methods: {
+        getTodoId: function(index) {
+            this.$http.get('/api/v1/task').then((response) => {
+                var todos = this.todos = response.data.data;
+                this.id = todos[index].id;
+            }, (response) => {
+                // error callback
+                sweetAlert("Oops...", "Something went wrong!", "error");
+                console.log(response);
+            });
+        },
         pageChanged: function(pageNum) {
             this.page = pageNum;
             this.fetchPage(pageNum);
@@ -179,9 +189,32 @@ export default {
                 console.log(response);
             });
         },
-        deleteTodo: function(index) {
-            this.todos.splice(index,1)
-            //TODO -> executar API
+        deleteTodo: function(id) {
+            var del = this;
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this task!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false
+            },
+            function(){
+                del.deleteTodoFromApi(id);
+                //del.todos.splice(index,1);
+                //this.todos.splice(index,1)
+                swal("Deleted!", "Your task has been deleted.", "success");
+            });
+        },
+        deleteTodoFromApi: function(id) {
+            this.$http.delete('/api/v1/task/' + id).then((response) => {
+                console.log('Task ' + id + ' deleted succesfully!');
+            }, (response) => {
+                sweetAlert("Oops...", "Something went wrong!", "error");
+                console.log(response);
+            });
+            this.fetchPage(this.page);
         }
     }
 }
