@@ -1,19 +1,19 @@
 <template>
     <form method="post" @submit.prevent="submit">
         <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="Your name here" name="name" value=""/>
+            <input type="text" class="form-control" placeholder="Your name here" name="name" v-model="name"/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Your email here" name="email" value=""/>
+            <input type="email" class="form-control" placeholder="Your email here" name="email" v-model="email"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password here" name="password"/>
+            <input type="password" class="form-control" placeholder="Password here" name="password" v-model="password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password confirmation here" name="password_confirmation"/>
+            <input type="password" class="form-control" placeholder="Password confirmation here" name="password_confirmation" v-model="password_confirmation"/>
             <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
         </div>
         <div class="row">
@@ -21,7 +21,7 @@
                 <label>
                     <div class="checkbox_register icheck">
                         <label>
-                            <input type="checkbox" name="terms">
+                            <input type="checkbox" name="terms" v-model="terms">
                         </label>
                     </div>
                 </label>
@@ -43,13 +43,18 @@ export default {
   mounted () {
     console.log('Component Register Form mounted.')
   },
+  data: function () {
+    return {
+      name: '',
+      email: '',
+      password: '',
+      password_confirmation: '',
+      terms: true
+    }
+  },
   methods: {
     submit () {
-      //Client HTTP
-      axios.post('/register', {
-        name: 'Paolo',
-        email: 'paolodavila@iesebre.com'
-      })
+      let data = new FormData(document.querySelector("#form"))
       .then(function (response) {
         console.log(response)
       })
