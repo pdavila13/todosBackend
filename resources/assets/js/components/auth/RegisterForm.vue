@@ -1,19 +1,19 @@
 <template>
     <form method="post" @submit.prevent="submit">
         <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="" name="name" value=""/>
+            <input type="text" class="form-control" placeholder="Your name here" name="name" value=""/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="" name="email" value=""/>
+            <input type="email" class="form-control" placeholder="Your email here" name="email" value=""/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="" name="password"/>
+            <input type="password" class="form-control" placeholder="Password here" name="password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="" name="password_confirmation"/>
+            <input type="password" class="form-control" placeholder="Password confirmation here" name="password_confirmation"/>
             <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
         </div>
         <div class="row">
@@ -39,14 +39,24 @@
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component Register Form mounted.')
-        },
-        methods: {
-            submit() {
-                console.log('submiting')
-            }
-        }
+export default {
+  mounted () {
+    console.log('Component Register Form mounted.')
+  },
+  methods: {
+    submit () {
+      //Client HTTP
+      axios.post('/register', {
+        name: 'Paolo',
+        email: 'paolodavila@iesebre.com'
+      })
+      .then(function (response) {
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
     }
+  }
+}
 </script>
