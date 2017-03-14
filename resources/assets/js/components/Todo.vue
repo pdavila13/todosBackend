@@ -65,7 +65,7 @@
 <script>
 
 export default {
-    props: ['todo','index','from'],
+    props: ['todo','index','from','page','fetchPage'],
 
     data() {
         return {

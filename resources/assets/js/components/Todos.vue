@@ -156,7 +156,6 @@ export default {
             this.todos.push(todo);
             this.newTodo = '';
             this.addTodoToApi(todo);
-            this.fetchPage(this.page);
         },
         setVisibility: function(visibility) {
             this.visibility = visibility;
@@ -170,12 +169,13 @@ export default {
                     priority: todo.priority,
                     done: todo.done
                 }).then((response) => {
-                console.log(response);
+                console.log('Task with name \"' + todo.name + '\" created succesfully!');
             }, (response) => {
                 // error callback
                 sweetAlert("Oops...", "Something went wrong!", "error");
                 console.log(response);
             });
+            this.fetchPage(this.page);
         },
         fetchPage: function(page) {
             this.$http.get('/api/v1/task?page=' + page).then((response) => {
