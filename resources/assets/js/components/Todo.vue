@@ -35,11 +35,11 @@
         </td>
         <td align="center">
             <div v-if="todo.done">
-                <input type="checkbox" class="checkbox icheck" checked @click="edit">
+                <input type="checkbox" class="checkbox icheck" checked @click="editTodoDone(page,todo.done)">
             </div>
 
             <div v-else>
-                <input type="checkbox" class="checkbox icheck" @click="edit">
+                <input type="checkbox" class="checkbox icheck" @click="editTodoDone(page,todo.done)">
             </div>
         </td>
         <td align="center">
@@ -70,6 +70,7 @@ export default {
     data() {
         return {
             editingName: false,
+            editingPriority: false,
         }
     },
 
@@ -87,7 +88,7 @@ export default {
             this.editingName = true;
             return this.fetchPage(pageNum);
         },
-        editTodoNameToAPI: function(){
+        editTodoNameToApi: function(){
             this.$http.put('/api/v1/task/' + this.todo.id, {
                 name: this.todo.name,
             }).then((response) => {
@@ -98,8 +99,40 @@ export default {
             });
         },
 
+        editTodoPriority: function(pageNum,number) {
+            this.editTodoPriorityToApi(number);
+            return this.fetchPage(pageNum);
+        },
+        editTodoPriorityToApi: function(number) {
+            this.$http.put('/api/v1/task/' + this.todo.id,{
+                priority: number,
+            }).then((response) => {
+                console.log('Priority of task ' + this.todo.id + ' updated succesfully! Now has \"' + number + '\".');
+            }, (response) => {
+                sweetAlert("Oops...", "Something went wrong!", "error");
+                console.log(response);
+            });
+        },
+
+        editTodoDone: function(pageNum,doneStatus) {
+            doneStatus = this.todo.done = !this.todo.done;
+            this.editTodoDoneToApi(doneStatus);
+            return this.fetchPage(pageNum);
+        },
+        editTodoDoneToApi: function(doneStatus) {
+            this.$http.put('/api/v1/task/' + this.todo.id,{
+                done: doneStatus,
+            }).then((response) => {
+                console.log('Done status of task ' + this.todo.id + ' updated succesfully! Now has \"' + doneStatus + '\".');
+            }, (response) => {
+                sweetAlert("Oops...", "Something went wrong!", "error");
+                console.log(response);
+            });
+        },
+
         uneditTodo: function(pageNum) {
             this.editingName = false;
+            this.editingPriority = false;
             return this.fetchPage(pageNum);
         },
 

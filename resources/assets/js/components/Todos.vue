@@ -98,8 +98,7 @@ export default {
             to: 0,
             total: 0,
             perPage: 0,
-            page: 1,
-            editing: false
+            page: 1
         }
     },
     computed: {
@@ -151,7 +150,8 @@ export default {
             var todo = {
                 name: value,
                 priority: 1,
-                done: false
+                done: false,
+                user_id: 1,
             };
             this.todos.push(todo);
             this.newTodo = '';
@@ -165,10 +165,11 @@ export default {
         },
         addTodoToApi: function(todo) {
             this.$http.post('/api/v1/task', {
-                    name: todo.name,
-                    priority: todo.priority,
-                    done: todo.done
-                }).then((response) => {
+                name: todo.name,
+                priority: todo.priority,
+                done: todo.done,
+                user_id: todo.user_id,
+            }).then((response) => {
                 console.log('Task with name \"' + todo.name + '\" created succesfully!');
             }, (response) => {
                 // error callback
