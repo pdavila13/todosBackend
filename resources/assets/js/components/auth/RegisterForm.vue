@@ -1,8 +1,9 @@
 <template>
     <form method="post" @submit.prevent="submit">
-        <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="Your name here" name="name" v-model="name"/>
+        <div class="form-group has-feedback has-error">
+            <input type="text" class="form-control" placeholder="Your name here" name="name" v-model="name" @keydown="clear('name')"/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            <span class="help-block" v-if="errors.has('name')" v-text="errors.get('name')"></span>
         </div>
         <div class="form-group has-feedback">
             <input type="email" class="form-control" placeholder="Your email here" name="email" v-model="email"/>
@@ -39,6 +40,9 @@
 </template>
 
 <script>
+
+import Errors from './Errors.js'
+
 export default {
   mounted () {
     console.log('Component Register Form mounted.')
@@ -50,7 +54,7 @@ export default {
       password: '',
       password_confirmation: '',
       terms: true,
-      error: {}
+      error: new Errors()
     }
   },
   methods: {
@@ -60,7 +64,7 @@ export default {
         console.log(response)
       })
       .catch(error => {
-        this.errors = error.response.data
+        this.errors.record(error.response.data)
       })
     }
   }
