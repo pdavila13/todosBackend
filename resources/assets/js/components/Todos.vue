@@ -55,6 +55,8 @@
                               v-bind:todo="todo"
                               v-bind:index="index"
                               v-bind:from="from"
+                              v-bind:page="page"
+                              v-bind:fetchPage="fetchPage"
                               @todo-deleted="deleteTodo">
                         </todo>
                     </tbody>
@@ -92,10 +94,10 @@ export default {
             todos: [],
             visibility: 'all', // 'active' 'completed'
             newTodo: '',
-            perPage: 5,
             from: 0,
             to: 0,
             total: 0,
+            perPage: 0,
             page: 1,
             editing: false
         }
