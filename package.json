@@ -3,7 +3,7 @@
   "scripts": {
     "prod": "gulp --production",
     "dev": "gulp watch",
-    "lint": "eslint --ext .js, .vue resources/assets/js"
+    "lint": "eslint --ext .js,.vue resources/assets/js"
   },
   "devDependencies": {
     "admin-lte": "^2.3.6",
