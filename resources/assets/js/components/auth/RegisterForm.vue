@@ -1,20 +1,22 @@
 <template>
-    <form method="post" @submit.prevent="submit" @keydown="errors.clear('$event.target.name')">
-        <div class="form-group has-feedback has-error">
-            <input type="text" class="form-control" placeholder="Your name here" name="name" v-model="name"/>
+    <form method="post" @submit.prevent="submit" @keydown="form.errors.clear('$event.target.name')">
+        <div class="form-group has-feedback">
+            <input type="text" class="form-control" placeholder="Your name here" name="name" v-model="form.name"/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
-            <span class="help-block" v-if="errors.has('name')" v-text="errors.get('name')"></span>
+            <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Your email here" name="email" v-model="email"/>
+            <input type="email" class="form-control" placeholder="Your email here" name="email" v-model="form.email"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('email')"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password here" name="password" v-model="password"/>
+            <input type="password" class="form-control" placeholder="Password here" name="password" v-model="form.password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('password')"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password confirmation here" name="password_confirmation" v-model="password_confirmation"/>
+            <input type="password" class="form-control" placeholder="Password confirmation here" name="password_confirmation" v-model="form.password_confirmation"/>
             <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
         </div>
         <div class="row">
@@ -22,7 +24,7 @@
                 <label>
                     <div class="checkbox_register icheck">
                         <label>
-                            <input type="checkbox" name="terms" v-model="terms">
+                            <input type="checkbox" name="terms" v-model="form.terms">
                         </label>
                     </div>
                 </label>
@@ -33,107 +35,45 @@
                 </div>
             </div><!-- /.col -->
             <div class="col-xs-4 col-xs-push-1">
-                <button type="submit" class="btn btn-primary btn-block btn-flat" :disabled="errors.any()">Register</button>
+                <button type="submit" class="btn btn-primary btn-block btn-flat" :disabled="form.errors.any()">Register</button>
             </div><!-- /.col -->
         </div>
+        <i class="fa fa-refresh fa-spin"></i>
     </form>
 </template>
 
 <script>
 
-//import Errors from './Errors.js'
-
-class Errors {
-    /**
-     *  Constructor
-     */
-    constructor() {
-        this.errors = {}
-    }
-
-    /**
-     * API
-     */
-    has(field) {
-        return this.errors.hasOwnProperty(field)
-    }
-
-    /**
-     *  Determine if we hace any errors
-     */
-    any() {
-        return Object.keys(this.errors).length > 0
-    }
-
-    /**
-     * Retrieve the error message for a field
-     *
-     * @param field
-     * @returns {*}
-     */
-    get(field) {
-        if (this.errors[field]) {
-            return this.errors[field][0]
-        }
-    }
-
-    /**
-     * Retrieve the error message for a field
-     *
-     * @param field
-     * @returns {*}
-     */
-    getAllErrors(field) {
-        if (this.errors[field]) {
-            return this.errors[field]
-        }
-    }
-
-    /**
-     *
-     * @param errors
-     */
-    record(errors) {
-        this.errors = errors
-    }
-
-    /**
-     *
-     * @param field
-     */
-    clear(field) {
-        console.log(field)
-        if (field) {
-            delete this.errors(field)
-            return
-        }
-        this.errors = {}
-    }
-}
+import Form from '../../forms/Form.js'
 
 export default {
   mounted () {
     console.log('Component Register Form mounted.')
+    //let form = new FromData(document.querySelector("form"))
+    //console.log(form)
+    //console.log(form.fields)
   },
   data: function () {
     return {
-      name: '',
-      email: '',
-      password: '',
-      password_confirmation: '',
-      terms: true,
-      errors: new Errors()
+      form: new Form({
+          name: '',
+          email: '',
+          password: '',
+          password_confirmation: '',
+          terms: true
+      })
     }
   },
   methods: {
     submit () {
-      axios.post('/register',this.$data)
-      .then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        this.errors.record(error.response.data)
-      })
+      this.form.submit('post','/register')
+        .then(response => {
+          console.log(response)
+            //TODO Redirect to home
+        })
+        .catch(error => {
+          console.log(error.response.data)
+        })
     }
   }
 }
