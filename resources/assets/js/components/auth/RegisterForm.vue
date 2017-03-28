@@ -1,6 +1,6 @@
 <template>
     <form method="post" @submit.prevent="submit" @keydown="form.errors.clear('$event.target.name')">
-        <div class="form-group has-feedback">
+        <div class="form-group has-feedback" :class="{ 'has-error': form.errors.has('name') }">
             <input type="text" class="form-control" placeholder="Your name here" name="name" v-model="form.name"/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
             <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></span>
@@ -8,43 +8,41 @@
         <div class="form-group has-feedback">
             <input type="email" class="form-control" placeholder="Your email here" name="email" v-model="form.email"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-            <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('email')"></span>
+            <span class="help-block" v-if="form.errors.has('email')" v-text="form.errors.get('email')"></span>
         </div>
         <div class="form-group has-feedback">
             <input type="password" class="form-control" placeholder="Password here" name="password" v-model="form.password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('password')"></span>
+            <span class="help-block" v-if="form.errors.has('password')" v-text="form.errors.get('password')"></span>
         </div>
         <div class="form-group has-feedback">
             <input type="password" class="form-control" placeholder="Password confirmation here" name="password_confirmation" v-model="form.password_confirmation"/>
             <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
         </div>
         <div class="row">
-            <div class="col-xs-1">
+            <div class="col-xs-7">
                 <label>
                     <div class="checkbox_register icheck">
-                        <label>
-                            <input type="checkbox" name="terms" v-model="form.terms">
+                        <label data-toggle="modal" data-target="#termsModal">
+                            <input type="checkbox" name="terms" v-model="form.terms" class="has-error">
+                            <a href="#" :class="{ 'text-danger': form.errors.has('terms') }">Terms and conditions</a>
                         </label>
                     </div>
                 </label>
             </div><!-- /.col -->
-            <div class="col-xs-6">
-                <div class="form-group">
-                    <button type="button" class="btn btn-block btn-flat" data-toggle="modal" data-target="#termsModal">I agree to the terms</button>
-                </div>
-            </div><!-- /.col -->
             <div class="col-xs-4 col-xs-push-1">
-                <button type="submit" class="btn btn-primary btn-block btn-flat" :disabled="form.errors.any()">Register</button>
+                <button type="submit" class="btn btn-primary btn-block btn-flat" :disabled="form.errors.any()"><i v-if="form.submitting" class="fa fa-refresh fa-spin"></i> Register</button>
             </div><!-- /.col -->
         </div>
-        <i class="fa fa-refresh fa-spin"></i>
+        <div v-if="form.errors.has('terms')" class="form-group has-feedback" :class="{ 'has-error': form.errors.has('terms') }">
+            <span class="help-block" v-if="form.errors.has('terms')" v-text="form.errors.get('terms')"></span>
+        </div>
     </form>
 </template>
 
 <script>
 
-import Form from '../../forms/Form.js'
+import Form from 'pdavila-forms'
 
 export default {
   mounted () {
