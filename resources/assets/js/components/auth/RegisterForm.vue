@@ -1,7 +1,7 @@
 <template>
     <form method="post" @submit.prevent="submit" @keydown="form.errors.clear('$event.target.name')">
         <div class="form-group has-feedback" :class="{ 'has-error': form.errors.has('name') }">
-            <input type="text" class="form-control" placeholder="Your name here" name="name" v-model="form.name"/>
+            <input type="text" class="form-control" placeholder="Your name here" name="name" v-model="form.name" autofocus/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
             <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></span>
         </div>
