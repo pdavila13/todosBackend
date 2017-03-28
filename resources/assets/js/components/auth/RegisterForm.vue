@@ -65,7 +65,7 @@ export default {
     }
   },
   watch: {
-    'forms-terms': function (value) {
+    'form.terms': function (value) {
       if(value) {
         $('input').iCheck('check')
       } else {
