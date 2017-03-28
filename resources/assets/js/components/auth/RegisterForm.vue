@@ -47,9 +47,11 @@ import Form from 'pdavila-forms'
 export default {
   mounted () {
     console.log('Component Register Form mounted.')
-    //let form = new FromData(document.querySelector("form"))
-    //console.log(form)
-    //console.log(form.fields)
+    let form = new FormData(document.querySelector("form"))
+    console.log(form)
+    console.log(form.fields)
+
+    this.initialitzeICheck()
   },
   data: function () {
     return {
@@ -58,20 +60,49 @@ export default {
           email: '',
           password: '',
           password_confirmation: '',
-          terms: true
+          terms: ''
       })
     }
   },
+  watch: {
+    'forms-terms': function (value) {
+      if(value) {
+        $('input').iCheck('check')
+      } else {
+        $('input').iCheck('uncheck')
+      }
+    }
+  },
   methods: {
+    initialitzeICheck() {
+      var component = this
+      $('input').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%',
+        inheritClass: true
+      }).on('ifChecked', function(event){
+        component.form.set('terms',true)
+        component.form.errors.clear('terms')
+      }).on('ifUnchecked', function(event){
+        component.form.set('terms','')
+      });
+    },
     submit () {
-      this.form.submit('post','/register')
-        .then(response => {
-          console.log(response)
-            //TODO Redirect to home
-        })
-        .catch(error => {
-          console.log(error.response.data)
-        })
+      this.form.post('/register').then(response => {
+        console.log('Register... OK!')
+        console.log(response.redirect)
+        console.log(response.status)
+        console.log(response.data)
+
+        this.redirect(response)
+      })
+      .catch(error => {
+        console.log(error.response.data)
+      })
+    },
+    redirect(response) {
+      window.location.reload()
     }
   }
 }
