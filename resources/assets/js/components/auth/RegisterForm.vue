@@ -3,7 +3,9 @@
         <div class="form-group has-feedback" :class="{ 'has-error': form.errors.has('name') }">
             <input type="text" class="form-control" placeholder="Your name here" name="name" value="" v-model="form.name" />
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
-            <transition name="fade">
+            <transition name="flash"
+                        enter-active-class="animated bounceIn"
+                        leade-active-class="animated bounceOut">
                 <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></span>
             </transition>
         </div>
@@ -49,11 +51,10 @@
 </template>
 
 <style>
-    .fade-transition {
-        transition: all 3s ease;
+    .fade-enter-active, .fade-leave-active{
+        transition: opacity 1.5s ease;
     }
-
-    .face-enter, .face-leave {
+    .fade-enter, .fade-leave-to {
         opacity: 0;
     }
 </style>
