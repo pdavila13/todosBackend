@@ -1,24 +1,30 @@
 <template>
-    <form method="post" @submit.prevent="submit" @keydown="form.errors.clear('$event.target.name')">
+    <form method="post" @submit.prevent="submit" @keydown="form.errors.clear($event.target.name)">
         <div class="form-group has-feedback" :class="{ 'has-error': form.errors.has('name') }">
-            <input type="text" class="form-control" placeholder="Your name here" name="name" v-model="form.name" autofocus/>
+            <input type="text" class="form-control" placeholder="Your name here" name="name" value="" v-model="form.name" />
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
-            <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></span>
+            <transition name="fade">
+                <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></span>
+            </transition>
         </div>
-        <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Your email here" name="email" v-model="form.email"/>
+
+        <div class="form-group has-feedback" :class="{ 'has-error': form.errors.has('email') }">
+            <input type="email" class="form-control" placeholder="Your email here" name="email" value="" v-model="form.email"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             <span class="help-block" v-if="form.errors.has('email')" v-text="form.errors.get('email')"></span>
         </div>
-        <div class="form-group has-feedback">
+
+        <div class="form-group has-feedback" :class="{ 'has-error': form.errors.has('password') }">
             <input type="password" class="form-control" placeholder="Password here" name="password" v-model="form.password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             <span class="help-block" v-if="form.errors.has('password')" v-text="form.errors.get('password')"></span>
         </div>
+
         <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password confirmation here" name="password_confirmation" v-model="form.password_confirmation"/>
-            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            <input type="password" class="form-control" placeholder="Password here" name="password_confirmation" v-model="form.password_confirmation"/>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
+
         <div class="row">
             <div class="col-xs-7">
                 <label>
@@ -29,16 +35,28 @@
                         </label>
                     </div>
                 </label>
-            </div><!-- /.col -->
+            </div>
+
             <div class="col-xs-4 col-xs-push-1">
                 <button type="submit" class="btn btn-primary btn-block btn-flat" :disabled="form.errors.any()"><i v-if="form.submitting" class="fa fa-refresh fa-spin"></i> Register</button>
-            </div><!-- /.col -->
+            </div>
         </div>
+
         <div v-if="form.errors.has('terms')" class="form-group has-feedback" :class="{ 'has-error': form.errors.has('terms') }">
             <span class="help-block" v-if="form.errors.has('terms')" v-text="form.errors.get('terms')"></span>
         </div>
     </form>
 </template>
+
+<style>
+    .fade-transition {
+        transition: all 3s ease;
+    }
+
+    .face-enter, .face-leave {
+        opacity: 0;
+    }
+</style>
 
 <script>
 
