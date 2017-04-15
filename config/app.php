@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Passport\PassportServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Spatie\Menu\Laravel\MenuServiceProvider::class,
         //
