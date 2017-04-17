@@ -12,6 +12,7 @@ use NotificationChannels\Gcm\GcmMessage;
 use NotificationChannels\OneSignal\OneSignalMessage;
 use PaoloDavila\TodosBackend\Message;
 use PaoloDavila\TodosBackend\User;
+use Storage;
 
 /**
  * Class MessageSent
@@ -32,6 +33,11 @@ class MessageSent extends Notification
     public $message;
 
     /**
+     * @var
+     */
+    public $imageURL;
+
+    /**
      * Create a new notification instance.
      *
      * @return void
@@ -40,6 +46,7 @@ class MessageSent extends Notification
     {
         $this->user = $user;
         $this->message = $message;
+        $this->imageURL = Storage::url('todosVueLogoLauncher.png');
     }
 
     /**
@@ -50,7 +57,7 @@ class MessageSent extends Notification
      */
     public function via($notifiable)
     {
-        return [GcmChannel::class];
+        return [GcmChannel::class, TelegramChannel::class];
     }
 
     /**
@@ -89,7 +96,10 @@ class MessageSent extends Notification
             ->title($this->user->name)
             ->message($this->message->message)
             ->data('message', $this->message)
-            ->data('user', $this->user);
+            ->data('user', $this->user)
+            ->data('image-type', 'circular')
+            ->data('style', 'inbox')
+            ->data('summaryText', 'There are %n% notifications"');
     }
 
     /**
@@ -101,5 +111,19 @@ class MessageSent extends Notification
         return OneSignalMessage::create()
             ->subject($this->user)
             ->body($this->message);
+    }
+
+    /**
+     * @param $notifiable
+     * @return mixed
+     */
+    public function toTelegram($notifiable)
+    {
+        $url = url('https://todosbackend.pdavila.2dam.acacha.org');
+
+        return TelegramMessage::create()
+            ->to('@dam21617alum')
+            ->content($this->message->message)
+            ->button('Go to my todosBackend', $url);
     }
 }
