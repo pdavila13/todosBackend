@@ -11419,7 +11419,7 @@ exports.colorLuminance = colorLuminance;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(41);
+var normalizeHeaderName = __webpack_require__(39);
 
 var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 var DEFAULT_CONTENT_TYPE = {
@@ -11702,7 +11702,7 @@ process.umask = function() { return 0; };
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(27);
+module.exports = __webpack_require__(25);
 
 /***/ }),
 /* 11 */
@@ -11712,12 +11712,12 @@ module.exports = __webpack_require__(27);
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(33);
-var buildURL = __webpack_require__(36);
-var parseHeaders = __webpack_require__(42);
-var isURLSameOrigin = __webpack_require__(40);
+var settle = __webpack_require__(31);
+var buildURL = __webpack_require__(34);
+var parseHeaders = __webpack_require__(40);
+var isURLSameOrigin = __webpack_require__(38);
 var createError = __webpack_require__(14);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(35);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(33);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -11813,7 +11813,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(38);
+      var cookies = __webpack_require__(36);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -11934,7 +11934,7 @@ module.exports = function isCancel(value) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(32);
+var enhanceError = __webpack_require__(30);
 
 /**
  * Create an Error with the specified message, config, error code, and response.
@@ -12046,7 +12046,7 @@ module.exports = g;
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(52);
+__webpack_require__(50);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -12093,9 +12093,7 @@ var app = new Vue({
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 24 */,
-/* 25 */,
-/* 26 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($, jQuery) {/*! AdminLTE app.js
@@ -12114,7 +12112,7 @@ function _init(){"use strict";$.AdminLTE.layout={activate:function(){var a=this;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(1)))
 
 /***/ }),
-/* 27 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12122,7 +12120,7 @@ function _init(){"use strict";$.AdminLTE.layout={activate:function(){var a=this;
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(15);
-var Axios = __webpack_require__(29);
+var Axios = __webpack_require__(27);
 var defaults = __webpack_require__(8);
 
 /**
@@ -12157,14 +12155,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(12);
-axios.CancelToken = __webpack_require__(28);
+axios.CancelToken = __webpack_require__(26);
 axios.isCancel = __webpack_require__(13);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(43);
+axios.spread = __webpack_require__(41);
 
 module.exports = axios;
 
@@ -12173,7 +12171,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 28 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12237,7 +12235,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 29 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12245,10 +12243,10 @@ module.exports = CancelToken;
 
 var defaults = __webpack_require__(8);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(30);
-var dispatchRequest = __webpack_require__(31);
-var isAbsoluteURL = __webpack_require__(39);
-var combineURLs = __webpack_require__(37);
+var InterceptorManager = __webpack_require__(28);
+var dispatchRequest = __webpack_require__(29);
+var isAbsoluteURL = __webpack_require__(37);
+var combineURLs = __webpack_require__(35);
 
 /**
  * Create a new instance of Axios
@@ -12329,7 +12327,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 30 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12388,14 +12386,14 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 31 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(34);
+var transformData = __webpack_require__(32);
 var isCancel = __webpack_require__(13);
 var defaults = __webpack_require__(8);
 
@@ -12474,7 +12472,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 32 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12500,7 +12498,7 @@ module.exports = function enhanceError(error, config, code, response) {
 
 
 /***/ }),
-/* 33 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12532,7 +12530,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 34 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12559,7 +12557,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 35 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12602,7 +12600,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 36 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12677,7 +12675,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 37 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12696,7 +12694,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 38 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12756,7 +12754,7 @@ module.exports = (
 
 
 /***/ }),
-/* 39 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12777,7 +12775,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 40 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12852,7 +12850,7 @@ module.exports = (
 
 
 /***/ }),
-/* 41 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12871,7 +12869,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 42 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12915,7 +12913,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 43 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12949,7 +12947,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 44 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13005,7 +13003,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 45 */
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13091,7 +13089,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 46 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13248,7 +13246,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 47 */
+/* 45 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13486,12 +13484,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 48 */
+/* 46 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pdavila_forms__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pdavila_forms__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pdavila_forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pdavila_forms__);
 //
 //
@@ -13625,7 +13623,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
-/* 49 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13749,7 +13747,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 50 */
+/* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14118,7 +14116,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
-/* 51 */
+/* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14445,11 +14443,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
-/* 52 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(61);
+window._ = __webpack_require__(59);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -14459,9 +14457,9 @@ window._ = __webpack_require__(61);
 
 window.$ = window.jQuery = __webpack_require__(1);
 
-__webpack_require__(53);
-__webpack_require__(26);
-__webpack_require__(60);
+__webpack_require__(51);
+__webpack_require__(24);
+__webpack_require__(58);
 __webpack_require__(66);
 window.toastr = __webpack_require__(67);
 
@@ -14508,7 +14506,7 @@ Vue.component('login-input-field', __webpack_require__(68));
 // });
 
 /***/ }),
-/* 53 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*!
@@ -16892,49 +16890,49 @@ if (typeof jQuery === 'undefined') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 54 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
 exports.push([module.i, "\n.fade-enter-active, .fade-leave-active{\n    transition: opacity 1.5s ease;\n}\n.fade-enter, .fade-leave-to {\n    opacity: 0;\n}\n", ""]);
 
 /***/ }),
-/* 55 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
 exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
-/* 56 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
 exports.push([module.i, "\n\n", ""]);
 
 /***/ }),
-/* 57 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
 exports.push([module.i, "\n.action-link[data-v-522ac720] {\n    cursor: pointer;\n}\n.m-b-none[data-v-522ac720] {\n    margin-bottom: 0;\n}\n", ""]);
 
 /***/ }),
-/* 58 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
 exports.push([module.i, "\n.action-link[data-v-af4ab82a] {\n    cursor: pointer;\n}\n.m-b-none[data-v-af4ab82a] {\n    margin-bottom: 0;\n}\n", ""]);
 
 /***/ }),
-/* 59 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
 exports.push([module.i, "\n.action-link[data-v-c9db0ff4] {\n    cursor: pointer;\n}\n.m-b-none[data-v-c9db0ff4] {\n    margin-bottom: 0;\n}\n", ""]);
 
 /***/ }),
-/* 60 */
+/* 58 */
 /***/ (function(module, exports) {
 
 /*!
@@ -17449,7 +17447,7 @@ exports.push([module.i, "\n.action-link[data-v-c9db0ff4] {\n    cursor: pointer;
 
 
 /***/ }),
-/* 61 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -34541,6 +34539,463 @@ exports.push([module.i, "\n.action-link[data-v-c9db0ff4] {\n    cursor: pointer;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17), __webpack_require__(94)(module)))
 
 /***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Errors = function () {
+  /**
+   * Constructor.
+   *
+   */
+  function Errors() {
+    _classCallCheck(this, Errors);
+
+    this.errors = {};
+  }
+
+  /**
+   * Determine if we have any errors.
+   *
+   * @returns {boolean}
+   */
+
+
+  _createClass(Errors, [{
+    key: "any",
+    value: function any() {
+      return Object.keys(this.errors).length > 0;
+    }
+
+    /**
+     * Determine if we have any errors.
+     *
+     * @returns {boolean}
+     */
+
+  }, {
+    key: "hasErrors",
+    value: function hasErrors() {
+      return this.any();
+    }
+
+    /**
+     * Get all of the raw errors for the collection.
+     *
+     * @returns {{}|*}
+     */
+
+  }, {
+    key: "all",
+    value: function all() {
+      return this.errors;
+    }
+
+    /**
+     * Check if exists error for a current field.
+     *
+     * @param field
+     * @returns {boolean}
+     */
+
+  }, {
+    key: "has",
+    value: function has(field) {
+      return this.errors.hasOwnProperty(field);
+    }
+
+    /**
+     * Retrieve the error message for a field.
+     *
+     * @param field
+     * @returns {*}
+     */
+
+  }, {
+    key: "get",
+    value: function get(field) {
+      if (this.has(field)) {
+        return this.errors[field][0];
+      }
+    }
+
+    /**
+     * Record the new errors.
+     *
+     * @param errors
+     */
+
+  }, {
+    key: "record",
+    value: function record(errors) {
+      this.set(errors);
+    }
+
+    /**
+     * Set the raw errors for the collection.
+     *
+     * @param errors
+     */
+
+  }, {
+    key: "set",
+    value: function set(errors) {
+      this.errors = errors;
+    }
+
+    /**
+     * Clear one or all error fields.
+     *
+     * @param field
+     */
+
+  }, {
+    key: "clear",
+    value: function clear(field) {
+      if (field) {
+        delete this.errors[field];
+        return;
+      }
+      this.errors = {};
+    }
+
+    /**
+     * Clear all errors if no field parameter is provided
+     * or clear only field if provided.
+     *
+     * @param field
+     */
+
+  }, {
+    key: "forget",
+    value: function forget(field) {
+      this.clear(field);
+    }
+  }]);
+
+  return Errors;
+}();
+
+exports.default = Errors;
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _Errors = __webpack_require__(60);
+
+var _Errors2 = _interopRequireDefault(_Errors);
+
+var _axios = __webpack_require__(10);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Form = function () {
+  /**
+   * Constructor.
+   *
+   * @param fields
+   */
+  function Form(fields) {
+    _classCallCheck(this, Form);
+
+    this.clearOnSubmit = false;
+    this.originalFields = fields;
+    this.errors = new _Errors2.default();
+
+    this.resetStatus();
+
+    for (var field in fields) {
+      this[field] = fields[field];
+    }
+  }
+
+  /**
+   * Retrieve the field form.
+   *
+   * @param field
+   * @returns {*}
+   */
+
+
+  _createClass(Form, [{
+    key: 'get',
+    value: function get(field) {
+      if (this.has(field)) {
+        return this[field];
+      }
+    }
+
+    /**
+     * Set the field value.
+     *
+     * @param field
+     * @param value
+     */
+
+  }, {
+    key: 'set',
+    value: function set(field, value) {
+      if (this.has(field)) {
+        this[field] = value;
+      }
+    }
+
+    /**
+     * Check if a field exists on form
+     *
+     * @param field
+     * @returns {boolean}
+     */
+
+  }, {
+    key: 'has',
+    value: function has(field) {
+      return this.hasOwnProperty(field);
+    }
+
+    /**
+     * Reset form.
+     *
+     */
+
+  }, {
+    key: 'reset',
+    value: function reset() {
+      this.fields = {};
+
+      for (var field in this.originalFields) {
+        this[field] = '';
+      }
+
+      this.errors.clear();
+    }
+
+    /**
+     * Activates form clearing/reset after submit.
+     *
+     */
+
+  }, {
+    key: 'clearOnSubmit',
+    value: function clearOnSubmit() {
+      this.clearOnSubmit = true;
+    }
+
+    /**
+     * Reset status.
+     *
+     */
+
+  }, {
+    key: 'resetStatus',
+    value: function resetStatus() {
+      this.errors.forget();
+      this.submitting = false;
+      this.submitted = false;
+      this.succeeded = false;
+    }
+
+    /**
+     * Get form data.
+     *
+     * @returns {{}}
+     */
+
+  }, {
+    key: 'data',
+    value: function data() {
+      var data = {};
+
+      for (var field in this.originalFields) {
+        data[field] = this[field];
+      }
+
+      return data;
+    }
+
+    /**
+     * Start processing the form.
+     *
+     */
+
+  }, {
+    key: 'startProcessing',
+    value: function startProcessing() {
+      this.errors.forget();
+      this.submitting = true;
+      this.succeeded = false;
+    }
+  }, {
+    key: 'finishProcessing',
+
+
+    /**
+     * Finish processing the form.
+     *
+     */
+    value: function finishProcessing() {
+      this.submitting = false;
+      this.submitted = false;
+      this.succeeded = true;
+    }
+
+    /**
+     * Finish processing the form on errors.
+     */
+
+  }, {
+    key: 'finishProcessingOnErrors',
+    value: function finishProcessingOnErrors() {
+      this.submitting = false;
+      this.submitted = false;
+      this.succeeded = false;
+    }
+
+    /**
+     * Send a POST request to the given URL.
+     *
+     * @param url
+     * @returns {*}
+     */
+
+  }, {
+    key: 'post',
+    value: function post(url) {
+      return this.submit('post', url);
+    }
+
+    /**
+     * Send a PUT request to the given URL.
+     *
+     * @param url
+     * @returns {*}
+     */
+
+  }, {
+    key: 'put',
+    value: function put(url) {
+      return this.submit('put', url);
+    }
+
+    /**
+     * Send a PATCH request to the given URL.
+     *
+     * @param url
+     * @returns {*}
+     */
+
+  }, {
+    key: 'patch',
+    value: function patch(url) {
+      return this.submit('patch', url);
+    }
+
+    /**
+     * Send a DELETE request to the given URL.
+     *
+     * @param url
+     * @returns {*}
+     */
+
+  }, {
+    key: 'delete',
+    value: function _delete(url) {
+      return this.submit('delete', url);
+    }
+
+    /**
+     * Submit the form to the back-end api/server.
+     *
+     * @param requesType
+     * @param url
+     * @returns {Promise}
+     */
+
+  }, {
+    key: 'submit',
+    value: function submit(requesType, url) {
+      var _this = this;
+
+      this.startProcessing();
+      return new Promise(function (resolve, reject) {
+        _axios2.default[requesType](url, _this.data()).then(function (response) {
+          _this.onSuccess();
+          resolve(response);
+        }).catch(function (error) {
+          _this.onFail(error.response.data);
+          reject(error);
+        });
+      });
+    }
+
+    /**
+     * Process on success.
+     */
+
+  }, {
+    key: 'onSuccess',
+    value: function onSuccess() {
+      this.finishProcessing();
+      if (this.clearOnSubmit) this.reset();
+    }
+
+    /**
+     * Process on fail.
+     *
+     * @param errors
+     */
+
+  }, {
+    key: 'onFail',
+    value: function onFail(errors) {
+      this.errors.record(errors);
+      this.finishProcessingOnErrors();
+    }
+
+    /**
+     * Set the errors on the form.
+     *
+     * @param errors
+     */
+
+  }, {
+    key: 'setErrors',
+    value: function setErrors(errors) {
+      this.submitting = false;
+      this.errors.set(errors);
+    }
+  }]);
+
+  return Form;
+}();
+
+exports.default = Form;
+
+/***/ }),
 /* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35796,7 +36251,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(44),
+  __webpack_require__(42),
   /* template */
   __webpack_require__(79),
   /* scopeId */
@@ -35834,7 +36289,7 @@ __webpack_require__(86)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(45),
+  __webpack_require__(43),
   /* template */
   __webpack_require__(77),
   /* scopeId */
@@ -35868,7 +36323,7 @@ module.exports = Component.exports
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(46),
+  __webpack_require__(44),
   /* template */
   __webpack_require__(78),
   /* scopeId */
@@ -35906,7 +36361,7 @@ __webpack_require__(87)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(47),
+  __webpack_require__(45),
   /* template */
   __webpack_require__(80),
   /* scopeId */
@@ -35944,7 +36399,7 @@ __webpack_require__(85)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(48),
+  __webpack_require__(46),
   /* template */
   __webpack_require__(76),
   /* scopeId */
@@ -35982,7 +36437,7 @@ __webpack_require__(89)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(49),
+  __webpack_require__(47),
   /* template */
   __webpack_require__(82),
   /* scopeId */
@@ -36020,7 +36475,7 @@ __webpack_require__(90)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(50),
+  __webpack_require__(48),
   /* template */
   __webpack_require__(83),
   /* scopeId */
@@ -36058,7 +36513,7 @@ __webpack_require__(88)
 
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(51),
+  __webpack_require__(49),
   /* template */
   __webpack_require__(81),
   /* scopeId */
@@ -38962,7 +39417,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(54);
+var content = __webpack_require__(52);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -38988,7 +39443,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(55);
+var content = __webpack_require__(53);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -39014,7 +39469,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(56);
+var content = __webpack_require__(54);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -39040,7 +39495,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(57);
+var content = __webpack_require__(55);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -39066,7 +39521,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(58);
+var content = __webpack_require__(56);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -39092,7 +39547,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(59);
+var content = __webpack_require__(57);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -48526,628 +48981,6 @@ __webpack_require__(23);
 __webpack_require__(20);
 module.exports = __webpack_require__(21);
 
-
-/***/ }),
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */,
-/* 120 */,
-/* 121 */,
-/* 122 */,
-/* 123 */,
-/* 124 */,
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */,
-/* 129 */,
-/* 130 */,
-/* 131 */,
-/* 132 */,
-/* 133 */,
-/* 134 */,
-/* 135 */,
-/* 136 */,
-/* 137 */,
-/* 138 */,
-/* 139 */,
-/* 140 */,
-/* 141 */,
-/* 142 */,
-/* 143 */,
-/* 144 */,
-/* 145 */,
-/* 146 */,
-/* 147 */,
-/* 148 */,
-/* 149 */,
-/* 150 */,
-/* 151 */,
-/* 152 */,
-/* 153 */,
-/* 154 */,
-/* 155 */,
-/* 156 */,
-/* 157 */,
-/* 158 */,
-/* 159 */,
-/* 160 */,
-/* 161 */,
-/* 162 */,
-/* 163 */,
-/* 164 */,
-/* 165 */,
-/* 166 */,
-/* 167 */,
-/* 168 */,
-/* 169 */,
-/* 170 */,
-/* 171 */,
-/* 172 */,
-/* 173 */,
-/* 174 */,
-/* 175 */,
-/* 176 */,
-/* 177 */,
-/* 178 */,
-/* 179 */,
-/* 180 */,
-/* 181 */,
-/* 182 */,
-/* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */,
-/* 200 */,
-/* 201 */,
-/* 202 */,
-/* 203 */,
-/* 204 */,
-/* 205 */,
-/* 206 */,
-/* 207 */,
-/* 208 */,
-/* 209 */,
-/* 210 */,
-/* 211 */,
-/* 212 */,
-/* 213 */,
-/* 214 */,
-/* 215 */,
-/* 216 */,
-/* 217 */,
-/* 218 */,
-/* 219 */,
-/* 220 */,
-/* 221 */,
-/* 222 */,
-/* 223 */,
-/* 224 */,
-/* 225 */,
-/* 226 */,
-/* 227 */,
-/* 228 */,
-/* 229 */,
-/* 230 */,
-/* 231 */,
-/* 232 */,
-/* 233 */,
-/* 234 */,
-/* 235 */,
-/* 236 */,
-/* 237 */,
-/* 238 */,
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */,
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Errors = function () {
-  /**
-   * Constructor.
-   *
-   */
-  function Errors() {
-    _classCallCheck(this, Errors);
-
-    this.errors = {};
-  }
-
-  /**
-   * Determine if we have any errors.
-   *
-   * @returns {boolean}
-   */
-
-
-  _createClass(Errors, [{
-    key: "any",
-    value: function any() {
-      return Object.keys(this.errors).length > 0;
-    }
-
-    /**
-     * Determine if we have any errors.
-     *
-     * @returns {boolean}
-     */
-
-  }, {
-    key: "hasErrors",
-    value: function hasErrors() {
-      return this.any();
-    }
-
-    /**
-     * Get all of the raw errors for the collection.
-     *
-     * @returns {{}|*}
-     */
-
-  }, {
-    key: "all",
-    value: function all() {
-      return this.errors;
-    }
-
-    /**
-     * Check if exists error for a current field.
-     *
-     * @param field
-     * @returns {boolean}
-     */
-
-  }, {
-    key: "has",
-    value: function has(field) {
-      return this.errors.hasOwnProperty(field);
-    }
-
-    /**
-     * Retrieve the error message for a field.
-     *
-     * @param field
-     * @returns {*}
-     */
-
-  }, {
-    key: "get",
-    value: function get(field) {
-      if (this.has(field)) {
-        return this.errors[field][0];
-      }
-    }
-
-    /**
-     * Record the new errors.
-     *
-     * @param errors
-     */
-
-  }, {
-    key: "record",
-    value: function record(errors) {
-      this.set(errors);
-    }
-
-    /**
-     * Set the raw errors for the collection.
-     *
-     * @param errors
-     */
-
-  }, {
-    key: "set",
-    value: function set(errors) {
-      this.errors = errors;
-    }
-
-    /**
-     * Clear one or all error fields.
-     *
-     * @param field
-     */
-
-  }, {
-    key: "clear",
-    value: function clear(field) {
-      if (field) {
-        delete this.errors[field];
-        return;
-      }
-      this.errors = {};
-    }
-
-    /**
-     * Clear all errors if no field parameter is provided
-     * or clear only field if provided.
-     *
-     * @param field
-     */
-
-  }, {
-    key: "forget",
-    value: function forget(field) {
-      this.clear(field);
-    }
-  }]);
-
-  return Errors;
-}();
-
-exports.default = Errors;
-
-/***/ }),
-/* 264 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _Errors = __webpack_require__(263);
-
-var _Errors2 = _interopRequireDefault(_Errors);
-
-var _axios = __webpack_require__(10);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Form = function () {
-  /**
-   * Constructor.
-   *
-   * @param fields
-   */
-  function Form(fields) {
-    _classCallCheck(this, Form);
-
-    this.clearOnSubmit = false;
-    this.originalFields = fields;
-    this.errors = new _Errors2.default();
-
-    this.resetStatus();
-
-    for (var field in fields) {
-      this[field] = fields[field];
-    }
-  }
-
-  /**
-   * Retrieve the field form.
-   *
-   * @param field
-   * @returns {*}
-   */
-
-
-  _createClass(Form, [{
-    key: 'get',
-    value: function get(field) {
-      if (this.has(field)) {
-        return this[field];
-      }
-    }
-
-    /**
-     * Set the field value.
-     *
-     * @param field
-     * @param value
-     */
-
-  }, {
-    key: 'set',
-    value: function set(field, value) {
-      if (this.has(field)) {
-        this[field] = value;
-      }
-    }
-
-    /**
-     * Check if a field exists on form
-     *
-     * @param field
-     * @returns {boolean}
-     */
-
-  }, {
-    key: 'has',
-    value: function has(field) {
-      return this.hasOwnProperty(field);
-    }
-
-    /**
-     * Reset form.
-     *
-     */
-
-  }, {
-    key: 'reset',
-    value: function reset() {
-      this.fields = {};
-
-      for (var field in this.originalFields) {
-        this[field] = '';
-      }
-
-      this.errors.clear();
-    }
-
-    /**
-     * Activates form clearing/reset after submit.
-     *
-     */
-
-  }, {
-    key: 'clearOnSubmit',
-    value: function clearOnSubmit() {
-      this.clearOnSubmit = true;
-    }
-
-    /**
-     * Reset status.
-     *
-     */
-
-  }, {
-    key: 'resetStatus',
-    value: function resetStatus() {
-      this.errors.forget();
-      this.submitting = false;
-      this.submitted = false;
-      this.succeeded = false;
-    }
-
-    /**
-     * Get form data.
-     *
-     * @returns {{}}
-     */
-
-  }, {
-    key: 'data',
-    value: function data() {
-      var data = {};
-
-      for (var field in this.originalFields) {
-        data[field] = this[field];
-      }
-
-      return data;
-    }
-
-    /**
-     * Start processing the form.
-     *
-     */
-
-  }, {
-    key: 'startProcessing',
-    value: function startProcessing() {
-      this.errors.forget();
-      this.submitting = true;
-      this.succeeded = false;
-    }
-  }, {
-    key: 'finishProcessing',
-
-
-    /**
-     * Finish processing the form.
-     *
-     */
-    value: function finishProcessing() {
-      this.submitting = false;
-      this.submitted = false;
-      this.succeeded = true;
-    }
-
-    /**
-     * Finish processing the form on errors.
-     */
-
-  }, {
-    key: 'finishProcessingOnErrors',
-    value: function finishProcessingOnErrors() {
-      this.submitting = false;
-      this.submitted = false;
-      this.succeeded = false;
-    }
-
-    /**
-     * Send a POST request to the given URL.
-     *
-     * @param url
-     * @returns {*}
-     */
-
-  }, {
-    key: 'post',
-    value: function post(url) {
-      return this.submit('post', url);
-    }
-
-    /**
-     * Send a PUT request to the given URL.
-     *
-     * @param url
-     * @returns {*}
-     */
-
-  }, {
-    key: 'put',
-    value: function put(url) {
-      return this.submit('put', url);
-    }
-
-    /**
-     * Send a PATCH request to the given URL.
-     *
-     * @param url
-     * @returns {*}
-     */
-
-  }, {
-    key: 'patch',
-    value: function patch(url) {
-      return this.submit('patch', url);
-    }
-
-    /**
-     * Send a DELETE request to the given URL.
-     *
-     * @param url
-     * @returns {*}
-     */
-
-  }, {
-    key: 'delete',
-    value: function _delete(url) {
-      return this.submit('delete', url);
-    }
-
-    /**
-     * Submit the form to the back-end api/server.
-     *
-     * @param requesType
-     * @param url
-     * @returns {Promise}
-     */
-
-  }, {
-    key: 'submit',
-    value: function submit(requesType, url) {
-      var _this = this;
-
-      this.startProcessing();
-      return new Promise(function (resolve, reject) {
-        _axios2.default[requesType](url, _this.data()).then(function (response) {
-          _this.onSuccess();
-          resolve(response);
-        }).catch(function (error) {
-          _this.onFail(error.response.data);
-          reject(error);
-        });
-      });
-    }
-
-    /**
-     * Process on success.
-     */
-
-  }, {
-    key: 'onSuccess',
-    value: function onSuccess() {
-      this.finishProcessing();
-      if (this.clearOnSubmit) this.reset();
-    }
-
-    /**
-     * Process on fail.
-     *
-     * @param errors
-     */
-
-  }, {
-    key: 'onFail',
-    value: function onFail(errors) {
-      this.errors.record(errors);
-      this.finishProcessingOnErrors();
-    }
-
-    /**
-     * Set the errors on the form.
-     *
-     * @param errors
-     */
-
-  }, {
-    key: 'setErrors',
-    value: function setErrors(errors) {
-      this.submitting = false;
-      this.errors.set(errors);
-    }
-  }]);
-
-  return Form;
-}();
-
-exports.default = Form;
 
 /***/ })
 /******/ ]);
