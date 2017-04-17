@@ -40,6 +40,8 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     #adminlte_routes
+    Route::get('messages', 'MessagesController@index')->name('messages');
+
     Route::get('bootstraplayout', 'BootstraplayoutController@index')->name('bootstraplayout');
 
     Route::get('flexboxlayout', 'FlexboxlayoutController@index')->name('flexboxlayout');
