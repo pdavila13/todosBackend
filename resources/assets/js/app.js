@@ -31,7 +31,37 @@ Vue.component(
     require('./components/passport/PersonalAccessTokens.vue')
 );
 
+Vue.component(
+  'msg-messages',
+  require('./components/Messages/MsgMessages.vue')
+);
+
+Vue.component(
+  'msg-form',
+  require('./components/Messages/MsgForm.vue')
+);
+
 //Vm: view model
 const app = new Vue({
-    el: '#app'
+  el: '#app',
+  data: {
+    messages: []
+  },
+  created() {
+    this.fetchMessages();
+  },
+  methods: {
+    fetchMessages() {
+      axios.get('/messages').then(response => {
+        this.messages = response.data;
+      });
+    },
+    addMessage(message) {
+      this.messages.push(message);
+
+      axios.post('/messages', message).then(response => {
+        console.log(response.data);
+      });
+    }
+  }
 });

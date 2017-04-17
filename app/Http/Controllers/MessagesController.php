@@ -4,6 +4,8 @@ namespace PaoloDavila\TodosBackend\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
+use PaoloDavila\TodosBackend\Events\MessageSent;
+use PaoloDavila\TodosBackend\Message;
 
 class MessagesController extends TodosBaseController
 {
@@ -31,6 +33,18 @@ class MessagesController extends TodosBaseController
             'message' => $request->input('message')
         ]);
 
+        broadcast(new MessageSent($user, $message))->toOthers();
+
         return ['status' => 'Message Sent!'];
+    }
+
+    /**
+     * Fetch all message
+     *
+     * @return Message
+     */
+    public function fetchMessage()
+    {
+        return Message::with('user')->get();
     }
 }
