@@ -2,6 +2,8 @@
 
 namespace PaoloDavila\TodosBackend\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
+use PaoloDavila\TodosBackend\Events\Register;
 use PaoloDavila\TodosBackend\User;
 use Validator;
 use PaoloDavila\TodosBackend\Http\Controllers\Controller;
@@ -83,5 +85,17 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'api_token'=> str_random(60),
         ]);
+    }
+
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {
+        event(new Register($user));
     }
 }
