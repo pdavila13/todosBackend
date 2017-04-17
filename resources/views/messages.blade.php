@@ -12,7 +12,7 @@
                 <!-- DIRECT CHAT PRIMARY -->
                 <div class="box box-primary direct-chat direct-chat-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Direct Chat</h3>
+                        <h3 class="box-title">Direct Message</h3>
 
                         <div class="box-tools pull-right">
                             <span data-toggle="tooltip" title="3 New Messages" class="badge bg-light-blue">3</span>
@@ -67,10 +67,11 @@
                                         <img class="contacts-list-img" src="/img/user1-128x128.jpg" alt="User Image">
 
                                         <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              Count Dracula
-                              <small class="contacts-list-date pull-right">2/28/2015</small>
-                            </span>
+                                            <span class="contacts-list-name">
+                                              Count Dracula
+                                              <small class="contacts-list-date pull-right">2/28/2015</small>
+                                            </span>
+
                                             <span class="contacts-list-msg">How have you been? I was...</span>
                                         </div>
                                         <!-- /.contacts-list-info -->
@@ -85,6 +86,7 @@
                     <!-- /.box-body -->
                     <div class="box-footer">
                         <form action="#" method="post">
+                            {{ csrf_field() }}
                             <div class="input-group">
                                 <input type="text" name="message" placeholder="Type Message ..." class="form-control">
                                 <span class="input-group-btn">

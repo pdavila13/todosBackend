@@ -2,9 +2,10 @@
 
 namespace PaoloDavila\TodosBackend\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 
-class MessagesController extends Controller
+class MessagesController extends TodosBaseController
 {
     /**
      *
@@ -13,6 +14,23 @@ class MessagesController extends Controller
     public function index()
     {
         $data = [];
-        return view('chat',$data);
+        return view('messages',$data);
+    }
+
+    /**
+     * Persist message to database
+     *
+     * @param  Request $request
+     * @return Response
+     */
+    public function sendMessage(Request $request)
+    {
+        $user = Auth::user();
+
+        $user->messages()->create([
+            'message' => $request->input('message')
+        ]);
+
+        return ['status' => 'Message Sent!'];
     }
 }
