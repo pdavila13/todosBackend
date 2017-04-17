@@ -6,10 +6,10 @@
  * Time: 20:24
  */
 
-namespace App\Repositories;
+namespace PaoloDavila\TodosBackend\Repositories;
 
-use App\Task;
-use App\User;
+use PaoloDavila\TodosBackend\Task;
+use PaoloDavila\TodosBackend\User;
 
 class UserTasksRepository
 {

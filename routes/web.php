@@ -1,9 +1,9 @@
 <?php
 
-use App\Task;
+use PaoloDavila\TodosBackend\Task;
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::group(['middleware' => 'can:show,App\Task'], function () {
+    Route::group(['middleware' => 'can:show,PaoloDavila\TodosBackend\Task'], function () {
         Route::get('/tasks', function () {
             $token = "TODO";
             $data = [
@@ -24,7 +24,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::get('users', function () {
-        dd(App\User::paginate());
+        dd(PaoloDavila\TodosBackend\User::paginate());
     });
 
     Route::get('/boxmodel', function () {
