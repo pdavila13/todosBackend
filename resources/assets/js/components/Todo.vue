@@ -89,7 +89,7 @@ export default {
             return this.fetchPage(pageNum);
         },
         editTodoNameToApi: function(){
-            this.$http.put('/api/v1/task/' + this.todo.id, {
+            axios.put('/api/v1/task/' + this.todo.id, {
                 name: this.todo.name,
             }).then((response) => {
                 console.log('Name of task ' + this.todo.id + ' updated succesfully! Now is known as \"' + this.todo.name + '\".');
@@ -104,7 +104,7 @@ export default {
             return this.fetchPage(pageNum);
         },
         editTodoPriorityToApi: function(number) {
-            this.$http.put('/api/v1/task/' + this.todo.id,{
+            axios.put('/api/v1/task/' + this.todo.id,{
                 priority: number,
             }).then((response) => {
                 console.log('Priority of task ' + this.todo.id + ' updated succesfully! Now has \"' + number + '\".');
@@ -120,7 +120,7 @@ export default {
             return this.fetchPage(pageNum);
         },
         editTodoDoneToApi: function(doneStatus) {
-            this.$http.put('/api/v1/task/' + this.todo.id,{
+            axios.put('/api/v1/task/' + this.todo.id,{
                 done: doneStatus,
             }).then((response) => {
                 console.log('Done status of task ' + this.todo.id + ' updated succesfully! Now has \"' + doneStatus + '\".');

@@ -129,7 +129,7 @@ export default {
     },
     methods: {
         getTodoId: function(index) {
-            this.$http.get('/api/v1/task').then((response) => {
+            axios.get('/api/v1/task').then((response) => {
                 var todos = this.todos = response.data.data;
                 this.id = todos[index].id;
             }, (response) => {
@@ -164,7 +164,7 @@ export default {
             return this.fetchPage(1);
         },
         addTodoToApi: function(todo) {
-            this.$http.post('/api/v1/task', {
+            axios.post('/api/v1/task', {
                 name: todo.name,
                 priority: todo.priority,
                 done: todo.done,
@@ -179,7 +179,7 @@ export default {
             this.fetchPage(this.page);
         },
         fetchPage: function(page) {
-            this.$http.get('/api/v1/task?page=' + page).then((response) => {
+            axios.get('/api/v1/task?page=' + page).then((response) => {
                 console.log(response);
                 this.todos = response.data.data;
                 this.perPage = response.data.per_page;
@@ -211,7 +211,7 @@ export default {
             });
         },
         deleteTodoFromApi: function(id) {
-            this.$http.delete('/api/v1/task/' + id).then((response) => {
+            axios.delete('/api/v1/task/' + id).then((response) => {
                 console.log('Task ' + id + ' deleted succesfully!');
             }, (response) => {
                 sweetAlert("Oops...", "Something went wrong!", "error");
