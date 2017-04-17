@@ -5,6 +5,7 @@ namespace PaoloDavila\TodosBackend;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use PaoloDavila\TodosBackend\Notifications\ResetPassword;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
@@ -66,5 +67,13 @@ class User extends Authenticatable
     public function routeNotificationForGcm()
     {
         return $this->gcmTokens();
+    }
+
+    /**
+     * @param string $token
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
     }
 }
