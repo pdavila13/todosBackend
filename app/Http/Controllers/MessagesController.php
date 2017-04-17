@@ -16,7 +16,7 @@ class MessagesController extends TodosBaseController
     public function index()
     {
         $data = [];
-        return view('messages',$data);
+        return view('msg',$data);
     }
 
     /**
@@ -29,7 +29,7 @@ class MessagesController extends TodosBaseController
     {
         $user = Auth::user();
 
-        $user->messages()->create([
+        $message = $user->messages()->create([
             'message' => $request->input('message')
         ]);
 
