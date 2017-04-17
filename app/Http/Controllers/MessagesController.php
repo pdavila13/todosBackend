@@ -35,6 +35,7 @@ class MessagesController extends TodosBaseController
 
         broadcast(new MessageSent($user, $message))->toOthers();
 
+        $user->notify(new MessageSentNotification($user, $message));
         return ['status' => 'Message Sent!'];
     }
 

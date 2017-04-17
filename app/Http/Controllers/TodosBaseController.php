@@ -10,7 +10,7 @@ use Illuminate\Routing\Controller as IlluminateController;
 /**
  * Class BaseController.
  *
- * @package ManelGavalda\TodosBackend\Http\Controllers
+ * @package PaoloDavila\TodosBackend\Http\Controllers
  */
 class TodosBaseController extends IlluminateController
 {

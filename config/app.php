@@ -170,6 +170,8 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Spatie\Menu\Laravel\MenuServiceProvider::class,
+        NotificationChannels\Gcm\GcmServiceProvider::class,
+        NotificationChannels\OneSignal\OneSignalServiceProvider::class,
         //
 
         /*
