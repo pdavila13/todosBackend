@@ -61,7 +61,7 @@
 
 <script>
 
-import Form from 'acacha-forms'
+import Form from 'pdavila-forms'
 
 export default {
   mounted () {
@@ -79,7 +79,7 @@ export default {
           email: '',
           password: '',
           password_confirmation: '',
-          terms: ''
+          terms: true
       })
     }
   },
