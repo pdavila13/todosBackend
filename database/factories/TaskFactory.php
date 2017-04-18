@@ -1,6 +1,6 @@
 <?php
 
-$factory->define(App\Task::class, function (Faker\Generator $faker) {
+$factory->define(PaoloDavila\TodosBackend\Task::class, function (Faker\Generator $faker) {
     return [
         'name'     => $faker->sentence,
         'done'     => $faker->boolean,

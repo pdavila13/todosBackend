@@ -16,7 +16,7 @@ class AdminUserSeeder extends Seeder
     public function run()
     {
         try {
-            $user = factory(App\User::class)->create([
+            $user = factory(PaoloDavila\TodosBackend\User::class)->create([
                     "name" => "Paolo Davila",
                     "email" => "pdavila@iesebre.com",
                     "password" => bcrypt(env('ADMIN_PWD', '123456'))]
