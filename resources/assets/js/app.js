@@ -15,6 +15,9 @@ require('./bootstrap');
 
 Vue.component('todos', require('./components/Todos.vue'));
 Vue.component('register-form', require('./components/auth/RegisterForm.vue'));
+Vue.component('login-form', require('./components/auth/LoginForm.vue'));
+Vue.component('email-reset-password-form', require('./components/auth/EmailResetPasswordForm.vue'));
+Vue.component('reset-password-form', require('./components/auth/ResetPasswordForm.vue'));
 
 Vue.component(
     'passport-clients',
