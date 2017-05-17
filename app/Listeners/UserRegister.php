@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 class UserRegister
 {
+    public $user;
     /**
      * Create the event listener.
      *
@@ -21,10 +22,10 @@ class UserRegister
     /**
      * Handle the event.
      *
-     * @param  Register  $event
+     * @param  Registered  $event
      * @return void
      */
-    public function handle(Register $event)
+    public function handle(Registered $event)
     {
         $event->user->assignRole('admin');
     }

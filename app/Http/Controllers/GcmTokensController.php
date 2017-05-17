@@ -4,6 +4,7 @@ namespace PaoloDavila\TodosBackend\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
+use PaoloDavila\TodosBackend\Events\GcmTokenCreated;
 
 /**
  * Class GcmTokensController
@@ -23,7 +24,7 @@ class GcmTokensController extends TodosBaseController
         ]);
 
         //Broadcast
-        broadcast(new GcmTokenCreated($user,$token))->toOthers();
+        broadcast(new GcmTokenCreated($user, $token))->toOthers();
         return ['status' => 'Token saved!'];
     }
 }

@@ -42,7 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     #adminlte_routes
     Route::get('messages', 'MessagesController@index')->name('messages');
     Route::post('messages', 'MessagesController@sendMessage');
-    Route::get('user/messages', 'MessagesController@fetchMessage');
+    Route::get('user/messages', 'MessagesController@fetchMessages');
 
     Route::resource('/emails', 'EmailController');
 

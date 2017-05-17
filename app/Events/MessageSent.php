@@ -49,7 +49,7 @@ class MessageSent extends Notification implements ShouldBroadcast
     /**
      * Get the notification's delivery channels.
      *
-     * @param  $notifiable
+     * @param $notifiable
      * @return array
      */
     public function via($notifiable)

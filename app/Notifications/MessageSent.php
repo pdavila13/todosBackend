@@ -3,39 +3,23 @@
 namespace PaoloDavila\TodosBackend\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use NotificationChannels\Gcm\GcmChannel;
 use NotificationChannels\Gcm\GcmMessage;
 use NotificationChannels\OneSignal\OneSignalMessage;
+use NotificationChannels\Telegram\TelegramChannel;
 use NotificationChannels\Telegram\TelegramMessage;
 use PaoloDavila\TodosBackend\Message;
 use PaoloDavila\TodosBackend\User;
-use Storage;
 
-/**
- * Class MessageSent
- * @package PaoloDavila\TodosBackend\Notifications
- */
-class MessageSent extends Notification
+
+class MessageSent extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    /**
-     * @var
-     */
     public $user;
-
-    /**
-     * @var
-     */
     public $message;
-
-    /**
-     * @var
-     */
     public $imageURL;
 
     /**
@@ -53,7 +37,7 @@ class MessageSent extends Notification
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return array
      */
     public function via($notifiable)
@@ -64,7 +48,7 @@ class MessageSent extends Notification
     /**
      * Get the mail representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
@@ -75,7 +59,7 @@ class MessageSent extends Notification
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return array
      */
     public function toArray($notifiable)

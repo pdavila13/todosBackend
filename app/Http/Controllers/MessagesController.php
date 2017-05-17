@@ -16,7 +16,7 @@ class MessagesController extends TodosBaseController
     public function index()
     {
         $data = [];
-        return view('messages',$data);
+        return view('messages', $data);
     }
 
     /**
@@ -29,23 +29,21 @@ class MessagesController extends TodosBaseController
     public function sendMessage(Request $request)
     {
         $user = Auth::user();
-
         $message = $user->messages()->create([
             'message' => $request->input('message')
         ]);
 
         broadcast(new MessageSent($user, $message))->toOthers();
-
         $user->notify(new MessageSentNotification($user, $message));
         return ['status' => 'Message Sent!'];
     }
 
     /**
-     * Fetch all message
+     * Fetch all messages
      *
      * @return Message
      */
-    public function fetchMessage()
+    public function fetchMessages()
     {
         return Message::with('user')->get();
     }

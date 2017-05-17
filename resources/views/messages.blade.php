@@ -26,7 +26,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
 
-                        <msg-messages :messages="messages"></msg-messages>
+                        <msg-messages v-bind:messages="messages"></msg-messages>
 
                         <!-- Contacts are loaded here -->
                         <div class="direct-chat-contacts">
@@ -36,11 +36,12 @@
                                         <img class="contacts-list-img" src="{{ Gravatar::get($user->email) }}" alt="User Image">
 
                                         <div class="contacts-list-info">
-                                            <span class="contacts-list-name">
-                                              {{ $user->name }}
+                                            <span class="contacts-list-name">{{ $user->name }}</span>
+                                            <span class="contacts-list-msg">
+                                                <small>
+                                                    <i class="fa fa-circle text-success"></i> {{ trans('adminlte_lang::message.online') }}
+                                                </small>
                                             </span>
-
-                                            <span class="contacts-list-msg">How have you been? I was...</span>
                                         </div>
                                         <!-- /.contacts-list-info -->
                                     </a>
@@ -53,7 +54,9 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <msg-form :user="{{ Auth::user() }}" v-on:messagesent="addMessage"></msg-form>
+
+                        <msg-form :user=" {{ Auth::user() }}" v-on:messagesent="addMessage"></msg-form>
+
                     </div>
                     <!-- /.box-footer-->
                 </div>

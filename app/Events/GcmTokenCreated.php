@@ -3,16 +3,15 @@
 namespace PaoloDavila\TodosBackend\Events;
 
 use Illuminate\Broadcasting\Channel;
+use Illuminate\Notifications\Notification;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use PaoloDavila\TodosBackend\GcmToken;
 use PaoloDavila\TodosBackend\User;
 
-class GcmTokenCreated extends \Notification implements ShouldBroadcast
+class GcmTokenCreated extends Notification implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
