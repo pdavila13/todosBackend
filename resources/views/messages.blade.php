@@ -33,12 +33,11 @@
                             <ul class="contacts-list">
                                 <li>
                                     <a href="#">
-                                        <img class="contacts-list-img" src="/img/user1-128x128.jpg" alt="User Image">
+                                        <img class="contacts-list-img" src="{{ Gravatar::get($user->email) }}" alt="User Image">
 
                                         <div class="contacts-list-info">
                                             <span class="contacts-list-name">
-                                              Count Dracula
-                                              <small class="contacts-list-date pull-right">2/28/2015</small>
+                                              {{ $user->name }}
                                             </span>
 
                                             <span class="contacts-list-msg">How have you been? I was...</span>

@@ -3,14 +3,11 @@
 namespace PaoloDavila\TodosBackend\Notifications;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
 
-/**
- * Class ResetPassword
- * @package PaoloDavila\TodosBackend\Notifications
- */
-class ResetPassword extends Notification
+class ResetPassword extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -48,7 +45,7 @@ class ResetPassword extends Notification
      */
     public function toMail($notifiable)
     {
-        $url = 'password/reset' . $this->token;
+        $url = 'password/reset/' . $this->token;
 
         return (new MailMessage)
             ->markdown('notifications.email',['url' => $url])

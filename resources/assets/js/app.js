@@ -61,13 +61,13 @@ const app = new Vue({
   },
   methods: {
     fetchMessages() {
-      axios.get('/messages').then(response => {
+      axios.get('/user/messages').then(response => {
         this.messages = response.data;
       });
     },
     addMessage(message) {
       this.messages.push(message);
-      axios.post('/msg', message).then(response => {
+      axios.post('/messages', message).then(response => {
         console.log(response.data);
       });
     }

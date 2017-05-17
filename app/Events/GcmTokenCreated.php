@@ -20,14 +20,15 @@ class GcmTokenCreated extends \Notification implements ShouldBroadcast
     public $token;
 
     /**
-     * Create a new event instance.
+     * GcmTokenCreated constructor.
      *
-     * @return void
+     * @param $user
+     * @param $token
      */
     public function __construct(User $user, GcmToken $token)
     {
         $this->user = $user;
-        $this->token = $token;
+        $this->message = $token;
     }
 
     /**
@@ -37,6 +38,6 @@ class GcmTokenCreated extends \Notification implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('gcm');
+        return new Channel('gcm');
     }
 }

@@ -40,10 +40,11 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     #adminlte_routes
-    Route::get('msg', 'MessagesController@index')->name('messages');
-    Route::post('msg', 'MessagesController@sendMessage');
+    Route::get('messages', 'MessagesController@index')->name('messages');
+    Route::post('messages', 'MessagesController@sendMessage');
+    Route::get('user/messages', 'MessagesController@fetchMessage');
 
-    Route::get('messages', 'MessagesController@fetchMessage');
+    Route::resource('/emails', 'EmailController');
 
     Route::get('bootstraplayout', 'BootstraplayoutController@index')->name('bootstraplayout');
 

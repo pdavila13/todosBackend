@@ -10,6 +10,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use NotificationChannels\Gcm\GcmChannel;
 use NotificationChannels\Gcm\GcmMessage;
 use NotificationChannels\OneSignal\OneSignalMessage;
+use NotificationChannels\Telegram\TelegramMessage;
 use PaoloDavila\TodosBackend\Message;
 use PaoloDavila\TodosBackend\User;
 use Storage;
@@ -87,7 +88,7 @@ class MessageSent extends Notification
 
     /**
      * @param $notifiable
-     * @return $this
+     * @return mixed
      */
     public function toGcm($notifiable)
     {
@@ -104,7 +105,7 @@ class MessageSent extends Notification
 
     /**
      * @param $notifiable
-     * @return $this
+     * @return mixed
      */
     public function toOneSignal($notifiable)
     {
@@ -114,6 +115,8 @@ class MessageSent extends Notification
     }
 
     /**
+     * To telegram.
+     *
      * @param $notifiable
      * @return mixed
      */

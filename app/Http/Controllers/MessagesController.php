@@ -16,14 +16,15 @@ class MessagesController extends TodosBaseController
     public function index()
     {
         $data = [];
-        return view('msg',$data);
+        return view('messages',$data);
     }
 
     /**
      * Persist message to database
      *
      * @param  Request $request
-     * @return Response
+     *
+     * @return array
      */
     public function sendMessage(Request $request)
     {

@@ -27,6 +27,13 @@ class User extends Authenticatable
     ];
 
     /**
+     * @var array
+     */
+    protected $events = [
+        'created' => Events\NewUser::class
+    ];
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -61,16 +68,22 @@ class User extends Authenticatable
      */
     public function gcmTokens()
     {
-        return 'AAAA149XRmY:APA91bHMDQLNCXoo7K0MhSeRnk3v0zy32dilwPaIRWb29LAzYc9C9WeGY4AlAha85BO252WfecSoEzvMjNRFdCRw6sHXdHN6TQe3F1hqkVEqKUFzJXw6XhPmbQPENy5BT4B_ACCOn4Nr';
-    }
-
-    public function routeNotificationForGcm()
-    {
-        return $this->gcmTokens();
+        return $this->hasMany(GcmToken::class);
     }
 
     /**
-     * @param string $token
+     * @return mixed
+     */
+    public function routeNotificationForGcm()
+    {
+        return $this->gcmTokens->pluck('registration_id')->toArray();
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string $token
+     * @return void
      */
     public function sendPasswordResetNotification($token)
     {
