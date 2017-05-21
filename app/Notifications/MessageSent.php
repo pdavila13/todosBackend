@@ -31,7 +31,6 @@ class MessageSent extends Notification implements ShouldQueue
     {
         $this->user = $user;
         $this->message = $message;
-        $this->imageURL = Storage::url('todosVueLogoLauncher.png');
     }
 
     /**
@@ -81,10 +80,7 @@ class MessageSent extends Notification implements ShouldQueue
             ->title($this->user->name)
             ->message($this->message->message)
             ->data('message', $this->message)
-            ->data('user', $this->user)
-            ->data('image-type', 'circular')
-            ->data('style', 'inbox')
-            ->data('summaryText', 'There are %n% notifications"');
+            ->data('user', $this->user);
     }
 
     /**

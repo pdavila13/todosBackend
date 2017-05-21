@@ -4,6 +4,7 @@ namespace PaoloDavila\TodosBackend\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
+use PaoloDavila\TodosBackend\Notifications\MessageSent as MessageSentNotification;
 use PaoloDavila\TodosBackend\Events\MessageSent;
 use PaoloDavila\TodosBackend\Message;
 
